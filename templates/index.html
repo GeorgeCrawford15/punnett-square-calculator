@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punnett Square Calculator</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <h1>Punnett Square Calculator</h1>
+    <h2>Monohybrid Cross</h2>
+
+    <label id="parent1-mono">
+        Parent 1 Genotype:
+        <input type="text">
+    </label>
+
+    <label id="parent2-mono">
+        Parent 2 Genotype:
+        <input type="text">
+    </label>
+
+    <table class="mono-punnet">
+        <caption>Monohybrid Cross: Aa × Aa</caption>
+        <tr>
+            <th></th>
+            <th>A</th>
+            <th>a</th>
+        </tr>
+        <tr>
+            <th>A</th>
+            <td>AA</td>
+            <td>Aa</td>
+        </tr>
+        <tr>
+            <th>a</th>
+            <td>Aa</td>
+            <td>aa</td>
+        </tr>
+    </table>
+
+    <script src="static/script.js"></script>
+</body>
+</html>

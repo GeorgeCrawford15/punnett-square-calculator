@@ -1,0 +1,19 @@
+# macOS system files
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+.env/
+
+# Flask-specific files
+instance/
+.flaskenv
+*.log
