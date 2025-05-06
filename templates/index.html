@@ -7,38 +7,97 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-    <h1>Punnett Square Calculator</h1>
-    <h2>Monohybrid Cross</h2>
 
-    <label id="parent1-mono">
-        Parent 1 Genotype:
-        <input type="text">
-    </label>
+    <header>
+        <nav>
+            <button onclick="toggleMonoCross()">Monohybrid Cross</button>
+            <button onclick="toggleDiCross()">Dihybrid Cross</button>
+        </nav>
+        <h1>Punnett Square Calculator</h1>
+    </header>
 
-    <label id="parent2-mono">
-        Parent 2 Genotype:
-        <input type="text">
-    </label>
+    <section class="mono-cross">
+        <h2>Monohybrid Cross</h2>
 
-    <table class="mono-punnet">
-        <caption>Monohybrid Cross: Aa × Aa</caption>
-        <tr>
-            <th></th>
-            <th>A</th>
-            <th>a</th>
-        </tr>
-        <tr>
-            <th>A</th>
-            <td>AA</td>
-            <td>Aa</td>
-        </tr>
-        <tr>
-            <th>a</th>
-            <td>Aa</td>
-            <td>aa</td>
-        </tr>
-    </table>
+        <div class="input-container">
+            <label for="parent1-mono">Parent 1 Genotype:</label>
+            <input type="text" id="parent1-mono">
+            <label id="parent2-mono">Parent 2 Genotype:</label>
+            <input type="text" id="parent2-mono">
+            <button>Find Punnett Square and Ratios</button>
+        </div>
+    
+        <table class="mono-punnett">
+            <caption>Monohybrid Cross: Aa × Aa</caption>
+            <tr>
+                <th></th>
+                <th>A</th>
+                <th>a</th>
+            </tr>
+            <tr>
+                <th>A</th>
+                <td>AA</td>
+                <td>Aa</td>
+            </tr>
+            <tr>
+                <th>a</th>
+                <td>Aa</td>
+                <td>aa</td>
+            </tr>
+        </table>
+    </section>
 
-    <script src="static/script.js"></script>
+    <section class="di-cross">
+        <h2>Dihybrid Cross</h2>
+
+        <div class="input-container">
+            <label for="parent1-di">Parent 1 Genotype:</label>
+            <input type="text" id="parent1-di">
+            <label for="parent2-di">Parent 2 Genotype:</label>
+            <input type="text" id="parent2-di">
+            <button>Find Punnett Square and Ratios</button>
+        </div>
+
+        <table class="di-punnett">
+            <caption>Dihybrid Cross: AaBb × AaBb</caption>
+            <tr>
+                <th></th>
+                <th>AB</th>
+                <th>Ab</th>
+                <th>aB</th>
+                <th>ab</th>
+            </tr>
+            <tr>
+                <th>AB</th>
+                <td>AABB</td>
+                <td>AABb</td>
+                <td>AaBB</td>
+                <td>AaBb</td>
+            </tr>
+            <tr>
+                <th>Ab</th>
+                <td>AABb</td>
+                <td>AAbb</td>
+                <td>AaBb</td>
+                <td>Aabb</td>
+            </tr>
+            <tr>
+                <th>aB</th>
+                <td>AaBB</td>
+                <td>AaBb</td>
+                <td>aabb</td>
+                <td>aaBb</td>
+            </tr>
+            <tr>
+                <th>ab</th>
+                <td>AaBb</td>
+                <td>Aabb</td>
+                <td>aaBb</td>
+                <td>aabb</td>
+            </tr>
+        </table>
+    </section>
+
+    <script src="../static/script.js"></script>
 </body>
 </html>
