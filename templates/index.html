@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Punnett Square Calculator</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
@@ -22,27 +22,27 @@
         <div class="input-container">
             <label for="parent1-mono">Parent 1 Genotype:</label>
             <input type="text" id="parent1-mono">
-            <label id="parent2-mono">Parent 2 Genotype:</label>
+            <label for="parent2-mono">Parent 2 Genotype:</label>
             <input type="text" id="parent2-mono">
-            <button id="hi">Find Punnett Square and Ratios</button>
+            <button id="calculate">Find Punnett Square and Ratios</button>
         </div>
     
         <table class="mono-punnett">
-            <caption>Monohybrid Cross: Aa × Aa</caption>
+            <caption>Monohybrid Cross: <p class="parent1-geno"></p> × <p class="parent2-geno"></p></caption>
             <tr>
                 <th></th>
-                <th>A</th>
-                <th>a</th>
+                <th id="parent1-gamete1"></th>
+                <th id="parent1-gamete2"></th>
             </tr>
             <tr>
-                <th>A</th>
-                <td>AA</td>
-                <td>Aa</td>
+                <th id="parent2-gamete1"></th>
+                <td id="offspring1-mono"></td>
+                <td id="offspring2-mono"></td>
             </tr>
             <tr>
-                <th>a</th>
-                <td>Aa</td>
-                <td>aa</td>
+                <th id="parent2-gamete2"></th>
+                <td id="offspring3-mono"></td>
+                <td id="offspring4-mono"></td>
             </tr>
         </table>
     </section>
@@ -98,6 +98,6 @@
         </table>
     </section>
 
-    <script src="../static/script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

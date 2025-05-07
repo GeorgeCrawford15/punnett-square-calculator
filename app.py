@@ -1,7 +1,12 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
+@app.route('/')
+def index():
+  return render_template('index.html')
 
 def mono_punnett(parent1, parent2):
   parent1gamete1 = parent1[0]
@@ -73,22 +78,20 @@ def phenotypic_ratio(offspring1, offspring2, offspring3, offspring4):
   
   return pheno_ratio
 
-@app.route('/', methods=['POST'])
+@app.route('/calculate', methods=['POST'])
 def calculate_punnett():
     data = request.get_json()
     if not data or 'parent1' not in data or 'parent2' not in data:
         return jsonify({'error': 'Please provide both parent1 and parent2 genotypes'}), 400
+    
     parent1 = data['parent1']
     parent2 = data['parent2']
     
-    # Calculate the Punnett square
     offspring1, offspring2, offspring3, offspring4 = mono_punnett(parent1, parent2)
     
-    # Calculate ratios
     geno_ratio = genotypic_ratio(offspring1, offspring2, offspring3, offspring4)
     pheno_ratio = phenotypic_ratio(offspring1, offspring2, offspring3, offspring4)
     
-    # Create a JSON response with all requested data
     response = {
         'offspring1': offspring1,
         'offspring2': offspring2,
@@ -98,8 +101,8 @@ def calculate_punnett():
         'pheno_ratio': pheno_ratio
     }
     
-    return jsonify(response)
+    return jsonify(response), 200
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000) # Starts development server on port 5000

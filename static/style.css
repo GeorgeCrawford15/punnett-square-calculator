@@ -120,4 +120,9 @@ th {
 caption {
     font-weight: bold;
     margin-bottom: 10px;
+    visibility: hidden;
+}
+
+caption p {
+    display: inline-block;
 }
